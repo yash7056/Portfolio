@@ -1,0 +1,277 @@
+.process {
+
+    height: 120vh;
+    background: #fff;
+    display: flex;
+    padding: 120px 8%;
+    overflow: hidden;
+
+}
+
+
+
+.process-left {
+
+    width: 45%;
+    padding-top: 30px;
+
+}
+
+
+
+.badge {
+
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 25px;
+
+}
+
+
+
+
+.process-title {
+
+    font-size: 55px;
+    line-height: 0.95;
+    color: #111827;
+    font-weight: 800;
+    letter-spacing: -2px;
+
+}
+
+
+
+
+.process-left p {
+
+    margin-top: 25px;
+    width: 350px;
+    color: #777;
+    font-size: 15px;
+    line-height: 1.6;
+
+}
+
+
+
+
+
+.process-right {
+
+    width: 55%;
+    position: relative;
+
+
+}
+
+
+
+
+
+/* dotted connection line */
+
+.line {
+
+    position: absolute;
+    width: 400px;
+    height: 500px;
+    border-left: 3px dashed #232222;
+
+
+    right: 180px;
+    top: 80px;
+    opacity: .5;
+
+}
+
+
+
+
+
+.process-card {
+
+    position: absolute;
+    width: 240px;
+    padding: 25px;
+    border-radius: 20px;
+
+    backdrop-filter: blur(20px);
+
+    border: 1px solid rgba(0, 0, 0, .08);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, .08);
+
+}
+
+
+
+
+
+.process-card span {
+
+    font-size: 12px;
+    color: #888;
+
+}
+
+
+
+.process-card h3 {
+
+    margin: 15px 0;
+    font-size: 20px;
+
+}
+
+
+
+.process-card p {
+
+    font-size: 13px;
+    line-height: 1.5;
+    color: #666;
+
+}
+
+
+
+
+
+.research {
+
+    right: 160px;
+    top: 20px;
+
+    background: #ff2525;
+    color: white;
+
+    transform: rotate(7deg);
+
+    box-shadow:
+        0 30px 60px rgba(255, 40, 40, .35);
+
+}
+
+
+
+.research p,
+.research span {
+
+    color: white;
+
+}
+
+
+
+
+
+.design {
+    left: -100px;
+    top: 200px;
+
+    background: #111827;
+    color: white;
+    transform: rotate(-5deg);
+
+}
+
+
+
+
+
+.build {
+
+    right: 180px;
+    bottom: 60px;
+
+    background: #111827;
+    color: white;
+    transform: rotate(5deg);
+
+}
+
+
+
+.build p {
+
+    color: #ccc;
+
+}
+
+.deploy {
+
+
+    left: -110px;
+    bottom: -100px;
+
+    background: #ff2525;
+    color: white;
+    transform: rotate(-5deg);
+
+}
+
+.process-path{
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:-150px;
+    top:50px;
+    overflow:visible;
+}
+
+.process-path path{
+
+    fill:none;
+    stroke:#bbb;
+    stroke-width:3;
+    stroke-linecap:round;
+
+    stroke-dasharray:8 10;
+}
+
+
+
+
+
+
+
+
+@media(max-width:900px) {
+
+
+    .process {
+
+        flex-direction: column;
+
+    }
+
+
+    .process-left,
+    .process-right {
+
+        width: 100%;
+
+    }
+
+
+    .process-title {
+
+        font-size: 40px;
+
+    }
+
+
+    .process-right {
+
+        margin-top: 50px;
+
+    }
+
+
+}
