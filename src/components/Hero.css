@@ -287,27 +287,63 @@
 }
 
 @media (max-width: 900px) {
+  .hero {
+    height: 100vh; /* Adjust hero height to fit viewport naturally on mobile */
+    min-height: 650px;
+  }
   .hero-content {
-    flex-direction: column-reverse;
+    flex-direction: column; /* Yash at top, text at bottom */
     text-align: center;
-    padding: 0 20px;
-    gap: 40px;
+    padding: 0 24px;
+    gap: 20px;
+    margin-top: 50px;
+  }
+  .right {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    margin: 20px 0 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
   }
   .left {
     margin-left: 0;
     max-width: 100%;
   }
+  .left h1 {
+    font-size: 32px;
+  }
+  .left h1 span {
+    font-size: 22px;
+  }
   .left p {
     margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.6;
   }
   .buttons {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .buttons button {
+    padding: 10px 20px;
+    font-size: 13px;
   }
   .intro {
-    margin-top: 60px;
+    margin-top: 10px;
   }
   .hero-background-photo {
-    width: 200vw;
+    width: 250vw; /* Make it wider to keep Yash centered/visible */
+    object-position: 75% center;
+  }
+  .hero-background-overlay {
+    background: linear-gradient(0deg, rgba(10, 10, 13, 0.95) 0%, rgba(10, 10, 13, 0.7) 60%, rgba(10, 10, 13, 0.3) 100%);
+  }
+  .social-icons {
+    display: none; /* Hide fixed side socials to prevent overlap */
   }
 }
 

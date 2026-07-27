@@ -169,7 +169,7 @@
 @media (max-width:900px) {
 
   .projects {
-    padding: 80px 25px;
+    padding: 80px 20px;
   }
 
   .socials {
@@ -177,19 +177,36 @@
   }
 
   .projects-top h2 {
-    font-size: 42px; 
+    font-size: 40px; 
   }
 
   .project-heading {
     flex-direction: column;
     align-items: flex-start;
+    gap: 5px;
+    margin: 10px 0 20px;
   }
 
   .project-heading h1 {
-    font-size: 30px;
+    font-size: 28px;
+  }
+
+  .project-heading h3 {
+    font-size: 22px;
+  }
+
+  .project-card {
+    padding: 25px 20px;
+    margin-bottom: 25px;
   }
 
   .buttons {
     flex-direction: column;
+    gap: 12px;
+  }
+  
+  .buttons a {
+    justify-content: center;
+    width: 100%;
   }
 }
