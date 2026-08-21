@@ -2,6 +2,8 @@
   height: 120vh;
   position: relative;
   overflow: hidden;
+  overflow-x: hidden;
+  width: 100%;
   display: flex;
   align-items: center;
   color: white; 
