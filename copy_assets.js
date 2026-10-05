@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const srcAvatar = "C:\\Users\\abn\\.gemini\\antigravity\\brain\\7dbe0731-9587-438a-9fee-e91163b974ea\\media__1783685181057.png";
+const srcAvatar = "C:\\Users\\abn\\.gemini\\antigravity\\brain\\7dbe0731-9587-438a-9fee-e91163b974ea\\media__1791225836892.jpg";
 const destAvatar = path.join(__dirname, 'src', 'assets', 'yash_photo.png');
 
 const srcResume = "C:\\Users\\abn\\.gemini\\antigravity\\brain\\7dbe0731-9587-438a-9fee-e91163b974ea\\media__1783686938497.pdf";
