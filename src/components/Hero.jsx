@@ -89,38 +89,70 @@ export default function Hero() {
 
   // SELECT MOST NATURAL MALE ENGLISH VOICE AVAILABLE
   const getBestVoice = () => {
-    const list = voices.length > 0 ? voices : window.speechSynthesis.getVoices();
-    
-    // Keywords representing male voices
-    const maleKeywords = ["guy", "david", "male", "mark", "ryan", "liam", "connor", "andrew", "james", "george", "ravi", "prabhat"];
-    
-    // 1. Try to find a premium Male Microsoft Natural / Online / Google voice
-    let voice = list.find(
-      (v) => 
-        v.lang.startsWith("en") && 
-        (v.name.includes("Online") || v.name.includes("Natural") || v.name.includes("Google")) &&
-        maleKeywords.some(keyword => v.name.toLowerCase().includes(keyword))
+    const list = voices.length > 0 ? voices : (window.speechSynthesis?.getVoices() || []);
+    if (!list || list.length === 0) return null;
+
+    const femaleKeywords = [
+      "female", "zira", "heera", "eva", "hazel", "susan", "samantha", 
+      "karen", "victoria", "moira", "fiona", "tessa", "veena", "ananya", 
+      "neerja", "sita", "jenny", "aria", "catherine", "linda", "amy", 
+      "emma", "joanna", "kendra", "kimberly", "salli", "ivy", "chloe", 
+      "zoe", "woman", "girl", "swara", "geeta", "priya", "kavya"
+    ];
+
+    const maleKeywords = [
+      "male", "david", "mark", "ravi", "prabhat", "guy", "ryan", 
+      "liam", "connor", "andrew", "james", "george", "daniel", 
+      "arthur", "aaron", "gordon", "fred", "oliver", "rishi", 
+      "alex", "tom", "lee", "richard", "stefan", "ajay", "madhav"
+    ];
+
+    const isFemale = (v) => {
+      const name = (v.name || "").toLowerCase();
+      return femaleKeywords.some((f) => name.includes(f));
+    };
+
+    const isMale = (v) => {
+      const name = (v.name || "").toLowerCase();
+      return maleKeywords.some((m) => name.includes(m));
+    };
+
+    // Filter English voices
+    const englishVoices = list.filter((v) => (v.lang || "").toLowerCase().startsWith("en"));
+    const pool = englishVoices.length > 0 ? englishVoices : list;
+
+    // Filter out female voices strictly
+    const maleCandidatePool = pool.filter((v) => !isFemale(v));
+
+    // 1. Indian English Male voice (Ravi, Rishi, Prabhat, etc.)
+    let voice = maleCandidatePool.find(
+      (v) => (v.lang || "").toLowerCase().includes("in") && isMale(v)
     );
-    
-    // 2. Fall back to any Male English voice
+
+    // 2. Microsoft Natural / Online / Google English Male voice
     if (!voice) {
-      voice = list.find(
-        (v) => 
-          v.lang.startsWith("en") && 
-          maleKeywords.some(keyword => v.name.toLowerCase().includes(keyword))
+      voice = maleCandidatePool.find(
+        (v) =>
+          ((v.name || "").includes("Online") || (v.name || "").includes("Natural") || (v.name || "").includes("Google")) &&
+          isMale(v)
       );
     }
-    
-    // 3. Fall back to standard en-US Male if possible, or any en voice containing "male"
+
+    // 3. Any voice matching explicit male keywords
     if (!voice) {
-      voice = list.find((v) => v.lang.startsWith("en") && v.name.toLowerCase().includes("male"));
+      voice = maleCandidatePool.find((v) => isMale(v));
     }
-    
-    // 4. Default to any English voice
+
+    // 4. Any English voice that is not explicitly female
+    if (!voice && maleCandidatePool.length > 0) {
+      voice = maleCandidatePool[0];
+    }
+
+    // 5. Fallback from full pool
     if (!voice) {
-      voice = list.find((v) => v.lang.startsWith("en"));
+      voice = pool.find((v) => isMale(v)) || pool[0];
     }
-    
+
     return voice;
   };
 
@@ -144,8 +176,8 @@ export default function Hero() {
         utterance.voice = bestVoice;
       }
       
-      utterance.rate = 0.95; // Slightly slower makes it sound more human and deliberate
-      utterance.pitch = 1.0;
+      utterance.rate = 0.92; // Natural, deliberate, professional pace
+      utterance.pitch = 0.82; // Deep, masculine baritone pitch
 
       utterance.onend = () => {
         setSpeaking(false);
