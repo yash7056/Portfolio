@@ -139,50 +139,66 @@
 /* =======================
    BUTTONS
 ======================= */
-.buttons{
-    display:flex;
-    gap:20px;
-    margin-top:30px;
-    flex-wrap:wrap;
+.buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 30px;
+  flex-wrap: wrap;
 }
 
-.buttons button{
-    padding:1px 20px;
-    border:none;
-    border-radius:50px;
-    cursor:pointer;
-    font-size:14px;
+.buttons a {
+  text-decoration: none;
+}
+
+.buttons button {
+  padding: 12px 26px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 /* Individual styles */
 .primary {
-    background: white;
-    color: #111;
+  background: white;
+  color: #0a0a0d;
+}
+
+.primary:hover {
+  background: #00f2fe;
+  color: #0a0a0d;
 }
 
 .secondary {
-    background: rgba(93, 91, 91, 0.4); 
-  
-  border: 2px solid white;
+  background: rgba(255, 255, 255, 0.1); 
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
   color: white;
-  
-  /* The blur effect will now be visible */
   backdrop-filter: blur(10px); 
 }
 
+.secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
+
 .resume {
-  
-  
-  border: 2px solid white;
- 
-  
-  /* The blur effect will now be visible */
-  
+  background: rgba(0, 242, 254, 0.12);
+  border: 1.5px solid #00f2fe;
+  color: #00f2fe;
+  backdrop-filter: blur(10px);
+}
+
+.resume:hover {
+  background: #00f2fe;
+  color: #0a0a0d;
 }
 
 /* hover effect */
 .buttons button:hover {
-    transform: translateY(-5px);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 242, 254, 0.25);
 }
 
 /* =======================
@@ -288,75 +304,187 @@
   50% { height: 28px; }
 }
 
+.voice-label {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 @media (max-width: 900px) {
   .hero {
-    height: 100vh;
-    min-height: 700px;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
-    align-items: flex-end; /* Align content to bottom */
-  }
-  .hero-content {
     flex-direction: column;
-    text-align: center;
-    padding: 60px 20px 80px; /* Space for scroll text */
-    justify-content: flex-end;
-    height: 100%;
-    margin-top: 0;
-    gap: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 60px 0 50px;
+    background: #0a0a0d;
+    overflow: visible;
   }
+
+  .hero-background-photo-container {
+    position: relative;
+    width: 100%;
+    height: 48vh;
+    min-height: 320px;
+    max-height: 440px;
+    overflow: hidden;
+    background-color: #9c0a0e;
+  }
+
+  .hero-background-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 12%;
+  }
+
+  .hero-background-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 10, 13, 0.1) 0%,
+      rgba(10, 10, 13, 0.0) 25%,
+      rgba(10, 10, 13, 0.35) 60%,
+      rgba(10, 10, 13, 0.85) 85%,
+      #0a0a0d 100%
+    );
+  }
+
+  .hero-content {
+    position: relative;
+    width: 100%;
+    padding: 0 20px;
+    margin-top: -36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    z-index: 2;
+  }
+
+  .left {
+    margin: 0;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .intro {
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #00f2fe;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 6px;
+  }
+
+  .left h1 {
+    font-size: clamp(28px, 7vw, 40px);
+    line-height: 1.15;
+    margin-bottom: 10px;
+    font-weight: 800;
+  }
+
+  .left h1 span {
+    font-size: clamp(15px, 4vw, 20px);
+    margin-top: 6px;
+    color: #00f2fe;
+    font-weight: 500;
+    display: block;
+  }
+
+  .left p {
+    font-size: 15px;
+    line-height: 1.65;
+    max-width: 500px;
+    color: #d1d5db;
+    margin: 0 auto;
+  }
+
   .right {
     position: relative;
     right: auto;
     top: auto;
     transform: none;
-    margin: 10px 0;
+    margin: 6px 0 2px;
     display: flex;
     justify-content: center;
     width: 100%;
-    order: 1;
   }
-  .left {
-    margin-left: 0;
-    max-width: 100%;
-    order: 2;
+
+  .speaking-container {
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 6px 18px;
+    border-radius: 40px;
+    backdrop-filter: blur(12px);
   }
-  .left h1 {
-    font-size: 30px;
-    margin-bottom: 12px;
-  }
-  .left h1 span {
+
+  .playButton {
+    width: 44px;
+    height: 44px;
     font-size: 18px;
-    margin-top: 5px;
   }
-  .left p {
-    margin: 0 auto;
-    font-size: 15px;
-    line-height: 1.6;
-    max-width: 90%;
-  }
+
   .buttons {
-    justify-content: center;
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
-    margin-top: 20px;
-  }
-  .buttons button {
-    padding: 10px 18px;
-    font-size: 12px;
-  }
-  .intro {
-    display: none; /* Hide duplicate greeting on mobile to save vertical space */
-  }
-  .hero-background-photo {
+    margin-top: 14px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 25%; /* Center face horizontally, shift vertically to show head/shoulders in top half */
   }
-  .hero-background-overlay {
-    background: linear-gradient(180deg, rgba(10, 10, 13, 0.15) 0%, rgba(10, 10, 13, 0.7) 45%, rgba(10, 10, 13, 0.98) 85%);
+
+  .buttons a {
+    text-decoration: none;
   }
+
+  .buttons button {
+    padding: 12px 22px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 50px;
+  }
+
   .social-icons {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 16px;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .social-icons a {
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    border-radius: 50%;
+  }
+
+  .scroll {
     display: none;
   }
 }

@@ -34,11 +34,13 @@ export default function Hero() {
         ease: "power4.out",
       });
 
-      // Animate social icons from left side
+      // Animate social icons from left on desktop, from bottom on mobile
+      const isMobile = window.innerWidth <= 850;
       gsap.from(".social-icons > *", {
-        x: -100,
+        x: isMobile ? 0 : -100,
+        y: isMobile ? 30 : 0,
         opacity: 0,
-        duration: 2.5,
+        duration: 2,
         ease: "power4.out",
       });
 
@@ -214,11 +216,12 @@ export default function Hero() {
               className={`playButton ${speaking ? "speaking" : ""}`}
               onClick={toggleSpeech}
               title={speaking ? "Pause Introduction" : "Listen to Introduction"}
+              aria-label={speaking ? "Pause introduction" : "Listen to introduction"}
             >
               {speaking ? "❚❚" : "▶"}
             </button>
             
-            {speaking && (
+            {speaking ? (
               <div className="audio-wave">
                 <span className="stroke"></span>
                 <span className="stroke"></span>
@@ -226,6 +229,8 @@ export default function Hero() {
                 <span className="stroke"></span>
                 <span className="stroke"></span>
               </div>
+            ) : (
+              <span className="voice-label">Voice Intro</span>
             )}
           </div>
         </div>

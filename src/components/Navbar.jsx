@@ -35,12 +35,19 @@ export default function Navbar() {
         Yash <span>Dargad</span>
       </div>
 
+      {isOpen && <div className="nav-backdrop" onClick={closeMenu}></div>}
+
       <ul className={`nav-links ${isOpen ? "open" : ""}`}>
         <li><a href="#home" onClick={closeMenu}>Home</a></li>
         <li><a href="#about" onClick={closeMenu}>About</a></li>
         <li><a href="#skills" onClick={closeMenu}>Skills</a></li>
         <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
         <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+        <li className="mobile-hire-item">
+          <a href="#contact" onClick={closeMenu}>
+            <button className="hire-btn">Hire Me</button>
+          </a>
+        </li>
       </ul>
 
       <div className="hire-btn-container">

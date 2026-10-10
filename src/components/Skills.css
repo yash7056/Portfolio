@@ -160,25 +160,27 @@
 
 
 @media(max-width:768px){
-
     .skills{
-
-        padding:60px 20px;
-
+        padding: 70px 20px;
+        min-height: auto;
     }
-
 
     .skills-title{
-
-        font-size:32px;
-
+        font-size: clamp(28px, 6vw, 38px);
     }
-
 
     .skills-subtitle{
-
-        font-size:15px;
-
+        font-size: 15px;
+        margin-bottom: 40px;
     }
 
+    .skills-container{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .skill-card{
+        padding: 20px;
+        border-radius: 16px;
+    }
 }

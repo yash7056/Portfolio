@@ -79,6 +79,25 @@
 .footer__links a:hover { color: var(--paper); }
 
 @media (max-width: 760px) {
-  .contact__inner { grid-template-columns: 1fr; }
-  .contact__row { flex-direction: column; }
+  .contact {
+    padding: 4.5rem 0 0;
+  }
+  .contact__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .contact__row {
+    flex-direction: column;
+  }
+  .footer {
+    margin-top: 3.5rem;
+  }
+  .footer__inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  .footer__links {
+    justify-content: center;
+  }
 }
