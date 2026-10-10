@@ -60,6 +60,16 @@
   border-color: rgba(37, 211, 102, 0.35);
 }
 
+.contact__info-card.sms-card:hover {
+  background: rgba(0, 242, 254, 0.08);
+  border-color: rgba(0, 242, 254, 0.35);
+}
+
+.sms-card .contact__info-icon {
+  background: rgba(0, 242, 254, 0.15);
+  color: #00f2fe;
+}
+
 .contact__info-icon {
   width: 42px;
   height: 42px;
@@ -238,6 +248,47 @@
   background: #1ebe5d;
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+}
+
+.btn-sms {
+  background: #00f2fe;
+  color: #0a0a0d;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 1.6rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.btn-sms:hover {
+  background: #4facfe;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 242, 254, 0.3);
+}
+
+.btn-email {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 1.6rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
+.btn-email:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #fff;
+  transform: translateY(-2px);
 }
 
 .btn-outline-reset {
